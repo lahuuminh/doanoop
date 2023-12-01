@@ -77,7 +77,7 @@ public class DanhSachHoaDon implements Serializable{
 		
 		hd.nhap();
 		double tongtien=0;
-		System.out.println("nhap so san pham");
+		System.out.println("nhap so luong san pham muon mua");
 		int sl=Integer.parseInt(sc.nextLine());
 		for (int i = 0; i < sl; i++) {
 			SanPham sp;
@@ -106,7 +106,7 @@ public class DanhSachHoaDon implements Serializable{
 				
 		}
 		if(tongtien==0) {
-			System.out.println("khong thanh cong");
+			System.out.println("tao hoa don khong thanh cong");
 		}else {
 			
 			hd.setTongtien(tongtien);

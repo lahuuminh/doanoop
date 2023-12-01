@@ -1,8 +1,10 @@
 package sanpham;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class NuocUong extends SanPham {
+public class NuocUong extends SanPham implements Serializable {
+	 private static final long serialVersionUID = 1L;
 	private String theloai;
 	private String duong;
 
@@ -67,6 +69,10 @@ public class NuocUong extends SanPham {
 			System.out.println();
 	
 		}
+	@Override
+	public String moTaSP() {
+		return "Nuoc uong giai khac " +this.getTen() + "the loai:"+this.theloai+". Gia:" + this.getDongia()+"vnd";
+	}
 	
 
 

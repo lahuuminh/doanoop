@@ -78,8 +78,7 @@ public void setThanhtien(double thanhtien) {
 }
 public void nhap() {
 	Scanner sc=new Scanner(System.in);
-	System.out.println("nhap ma chi tiet phieu nhap");
-	this.mapn=sc.nextLine();
+	
 	System.out.println("nhap  ma san pham");
 	this.masanpham=sc.nextLine();
 	System.out.println("nhap so luong san pham");

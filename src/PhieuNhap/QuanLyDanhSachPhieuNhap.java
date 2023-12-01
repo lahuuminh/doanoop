@@ -54,7 +54,7 @@ public void menu() {
 				case 1:
 					System.out.println("NHAP MA PHIEU NHAP");
 					String ma=sc.nextLine();
-					DanhSachPhieuNhap pnma =a.timMaNhaCungCap(ma);
+					DanhSachPhieuNhap pnma =a.timMaPhieu(ma);
 					System.out.println("PHIEU NHAP THEO MA");
 				    pnma.xuat();
 					break;
@@ -72,14 +72,16 @@ public void menu() {
 					System.out.println("PHIEU LAP THEO MA NHA CUNG CAP");
 				    plncc.xuat();
 					break;
-			default:
-				break;
+			    default:
+				 break;
 				}
+				break;
 			case 6:
 				System.out.println("----------MENU THONG KE------------");
 				System.out.println("1.THONG KE TONG TIEN NHAP HANG CUA THANG");
 				int thang=Integer.parseInt(sc.nextLine());
 				a.thongKeTienNhapHang(thang);
+				break;
 			case 7:
 				dk=false;
 				break;

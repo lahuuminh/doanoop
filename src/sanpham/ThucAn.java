@@ -53,6 +53,11 @@ public class ThucAn extends SanPham implements Serializable{
 	
 		}
 
+	@Override
+	public String moTaSP() {
+		return "Thuc an ngon:" +this.getTen() +"cach thuc che bien:"+this.cachthucchebien+". Gia:" + this.getDongia()+"vnd";
+	}
+
 	
 	
 

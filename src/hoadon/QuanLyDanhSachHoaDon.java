@@ -95,7 +95,7 @@ public void menu() {
 						default:
 						break;
 						}
-					break;
+					
 				case 7:
 					dk=false;
 					break;
@@ -109,5 +109,6 @@ public void menu() {
 }
 		dshd.ghi(dshd);
 		dssp.ghi(dssp);
+		dscthd.ghi(dscthd);
 }
 }

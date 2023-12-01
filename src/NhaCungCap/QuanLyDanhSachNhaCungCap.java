@@ -10,7 +10,7 @@ public class QuanLyDanhSachNhaCungCap {
 				a.doc();
 				while(dk) {
 					
-					System.out.println("------------MENU QUAN LY NHAN VIEN-------------");
+					System.out.println("------------MENU QUAN LY NHA CUNG CAP-------------");
 					int luachon;
 					System.out.println("1.XEM DANH SACH NHA CUNG CAP");
 					System.out.println("2.THEM NHA CUNG CAP");

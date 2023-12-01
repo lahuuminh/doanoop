@@ -142,7 +142,7 @@ public DanhSachChiTietHoaDon timMaSp(String ma) {
 	DanhSachChiTietHoaDon cthd=new DanhSachChiTietHoaDon();
 	
 	for(int i=0;i<n;i++) {
-	if(dscthd[i].getMahd().compareTo(ma)==0) {
+	if(dscthd[i].getMasp().compareTo(ma)==0) {
 	  cthd.them(dscthd[i]);
 	}
 }

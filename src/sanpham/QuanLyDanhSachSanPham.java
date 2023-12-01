@@ -3,6 +3,8 @@ package sanpham;
 import java.util.Iterator;
 import java.util.Scanner;
 
+import hoadon.DanhSachChiTietHoaDon;
+
 
 
 
@@ -14,7 +16,9 @@ public void menu() {
 		
 		Boolean dk=true;
 		DanhSachSanPham a=new DanhSachSanPham();
+		DanhSachChiTietHoaDon dscthd=new DanhSachChiTietHoaDon();
 		a.doc();
+		dscthd.doc();
 		
 		while(dk) {
 			
@@ -25,7 +29,8 @@ public void menu() {
 			System.out.println("3.XOA SAN PHAM");
 			System.out.println("4.SUA THONG TIN SAN PHAM");
 			System.out.println("5.TIM KIEM SAN PHAM");
-			System.out.println("6.THOAT");
+			System.out.println("6.THONG KE SAN PHAM");
+			System.out.println("7.THOAT");
 			System.out.println("NHAP LUA CHON");
 			Scanner sc=new Scanner(System.in);
 			luachon = Integer.parseInt(sc.nextLine());
@@ -79,12 +84,30 @@ public void menu() {
 			default:
 				break;
 }
-			case 6:
 				break;
+			case 6:
+				  int luachonthongke;
+					System.out.println("----------MENU THONG KE------------");
+					System.out.println("1.THONG KE SO LUONG BAN DUOC CUA TUNG SAN PHAM");
+					System.out.println("2.THONG KE DOAN THU CUA TUNG SAN PHAM");
+					luachonthongke = Integer.parseInt(sc.nextLine());
+					switch (luachonthongke) {
+					case 1:
+						a.thongKeSPBDC(dscthd.getDscthd(),dscthd.getN());
+						break;
+					case 2:
+						a.thongKeDTSP(dscthd.getDscthd(),dscthd.getN());
+						break;
+				    default:
+					  break;
+			
+		}
+					break;
 			case 7:
 				dk=false;
 				break;
-		}
+		
+}
 		
 }
 		a.ghi(a);

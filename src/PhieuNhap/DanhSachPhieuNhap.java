@@ -97,6 +97,7 @@ public class DanhSachPhieuNhap implements Serializable{
 				double thanhtien=sp.getDongia()*ctpn.getSoluong();
 				ctpn.setDongia(sp.getDongia());
 				ctpn.setThanhtien(thanhtien);
+				ctpn.setMapn(pn.getMaphieu());
 				dsctpn.them(ctpn);
 				tongtien+=thanhtien;
 				sp.setSoluong(sp.getSoluong()+ctpn.getSoluong());
@@ -200,13 +201,12 @@ public class DanhSachPhieuNhap implements Serializable{
 	}
 	public void thongKeTienNhapHang(int th) {
 		float tongtien=0;
-		for (int i = 0; i < dspn.length; i++) {
-			int thang=Integer.parseInt( dspn[i].getNgay().split("/")[1]);
-			if(th==thang) {
+		for (int i = 0; i < n; i++) {
+			
 				tongtien+=dspn[i].getTongtien();
-			}
+			
 		}
-		System.out.println("TONG TIEN NHAP HANG THANH:"+th+"LA:"+tongtien);
+		System.out.println("TONG TIEN NHAP HANG "+"LA:"+tongtien);
 	}
 	public void ghi(DanhSachPhieuNhap dspn) {
 		 String filePath = "phieunhap.dat";

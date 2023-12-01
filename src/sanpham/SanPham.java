@@ -78,5 +78,6 @@ public abstract class SanPham implements Serializable{
 	public void xuat() {
 		System.out.print("ma:"+this.ma+",ten:"+this.ten+",donvitinh:"+this.donvitinh+",dongia:"+this.dongia+",soluong:"+this.soluong);
 		}
+	public abstract String moTaSP();
 	
 }

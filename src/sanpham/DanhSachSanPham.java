@@ -9,8 +9,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
+import hoadon.ChiTietHoaDon;
+import hoadon.DanhSachChiTietHoaDon;
 import hoadon.DanhSachHoaDon;
 import hoadon.HoaDon;
 
@@ -226,6 +230,52 @@ public  class DanhSachSanPham implements Serializable {
 		return sp;
 		
 
+	}
+	public void thongKeSPBDC(ChiTietHoaDon a[],int n) {
+	    Map<String, Integer> m=new HashMap<>();
+		for(int i=0;i<n;i++) {
+		  
+		  String masp=a[i].getMasp();
+		  int soluong=a[i].getSoluong();
+		  int temp;
+		  if(m.get(masp)==null) {
+			  m.put(masp,soluong);
+		  }else {
+			 temp=m.get(masp);
+			  m.put(masp, soluong+temp);
+		  }
+		 }
+		for(int i=0;i<this.n;i++) {
+			if(m.get(dssp[i].getMa())!=null) {
+				System.out.println("So luong ban duoc cua san pham "+dssp[i].getTen()+":"+m.get(dssp[i].getMa()));
+			}else {
+				System.out.println("So luong ban duoc cua san pham "+dssp[i].getTen()+":"+"0");
+			}
+		}
+	}
+	public void thongKeDTSP(ChiTietHoaDon a[],int n) {
+	    Map<String, Double> m=new HashMap<>();
+		for(int i=0;i<n;i++) {
+		  
+		  String masp=a[i].getMasp();
+		  double tien=a[i].getSoluong()*a[i].getDongia();
+		  double temp;
+		  if(m.get(masp)==null) {
+			
+			  m.put(masp,tien);
+		  }else {
+			 temp =m.get(masp);
+
+			  m.put(masp, tien+temp);
+		  }
+		 }
+		for(int i=0;i<this.n;i++) {
+			if(m.get(dssp[i].getMa())!=null) {
+				System.out.println("Danh thu  ban duoc cua "+dssp[i].getTen()+":"+m.get(dssp[i].getMa()));
+			}else {
+				System.out.println("Danh thu  ban duoc cua "+dssp[i].getTen()+":"+"0.0");
+			}
+		}
 	}
 	public void ghi(DanhSachSanPham dspn) {
 		 String filePath = "sanpham.dat";
