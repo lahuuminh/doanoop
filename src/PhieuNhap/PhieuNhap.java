@@ -3,6 +3,8 @@ package PhieuNhap;
 import java.io.Serializable;
 import java.util.Scanner;
 
+import until.ValidInput;
+
 
 
 public class PhieuNhap implements Serializable {
@@ -88,8 +90,8 @@ public class PhieuNhap implements Serializable {
 			Scanner sc=new Scanner(System.in);
 			System.out.println("nhap ma  phieu");
 			this.maphieu=sc.nextLine();
-			System.out.println("nhap ngay lap");
-			this.ngay=sc.nextLine();
+//			System.out.println("nhap ngay lap");
+			this.ngay=ValidInput.getValidDate(sc,"nhap ngay lap");
 			System.out.println("nhap ma nhan vien");
 			this.manv=sc.nextLine();
 			System.out.println("nhap ma nha cung cap ");

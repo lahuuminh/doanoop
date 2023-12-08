@@ -3,6 +3,8 @@ package NhanVien;
 import java.io.Serializable;
 import java.util.Scanner;
 
+import until.ValidInput;
+
 public class NhanVien implements Serializable{
 	 private static final long serialVersionUID = 1L;
 	private String ma;
@@ -79,10 +81,11 @@ public class NhanVien implements Serializable{
 		this.ho=sc.nextLine();
 		System.out.println("nhap ten nhan vien");
 		this.ten=sc.nextLine();
-		System.out.println("nhap ngay sinh nhan vien");
-		this.ngaysinh=sc.nextLine();
-		System.out.println("nhap luong nhan vien");
-		this.luong=sc.nextFloat();
+		
+//		System.out.println("nhap ngay sinh nhan vien");
+		this.ngaysinh=ValidInput.getValidDate(sc, "nhap ngay sinh nhan vien");
+//		System.out.println("nhap luong nhan vien");
+		this.luong=ValidInput.getValidFloat(sc,"nhap luong nhan vien");
 		
 		
 	}

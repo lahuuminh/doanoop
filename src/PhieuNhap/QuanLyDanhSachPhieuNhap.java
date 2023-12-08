@@ -3,6 +3,7 @@ package PhieuNhap;
 import java.util.Scanner;
 
 import sanpham.DanhSachSanPham;
+import until.ValidInput;
 
 public class QuanLyDanhSachPhieuNhap {
 public void menu() {
@@ -25,9 +26,9 @@ public void menu() {
 			System.out.println("5.TIM KIEM PHIEU NHAP");
 			System.out.println("6.THONG KE PHIEU NHAP");
 			System.out.println("7.THOAT");
-			System.out.println("NHAP LUA CHON");
+//			System.out.println("NHAP LUA CHON");
 			Scanner sc=new Scanner(System.in);
-			luachon = Integer.parseInt(sc.nextLine());
+			luachon =ValidInput.getValidInteger(sc,"NHAP LUA CHON");
 			switch (luachon) {
 			case 1:
 				System.out.println("DANH SACH PHIEU NHAP");
@@ -48,6 +49,7 @@ public void menu() {
 				System.out.println("1.TIM KIEM MA PHIEU NHAP");
 				System.out.println("2.TIM KIEM THEO NGAY");
 				System.out.println("3.TIM KIEM THEO MA NHA CUNG CAP");
+				System.out.println("4.THOAT");
 				System.out.println("NHAP LUA CHON");
 				luachontimkiem = Integer.parseInt(sc.nextLine());
 				switch (luachontimkiem) {
@@ -59,8 +61,8 @@ public void menu() {
 				    pnma.xuat();
 					break;
 				case 2:
-					System.out.println("NHAP NGAY LAP");
-					String ngay=sc.nextLine();
+//					System.out.println("NHAP NGAY LAP");
+					String ngay=ValidInput.getValidDate(sc,"NHAP NGAY LAP");
 					DanhSachPhieuNhap pnnl=a.timNgay(ngay);
 					System.out.println("PHIEU NHAP THEO NGAY LAP");
 				    pnnl.xuat();
@@ -72,15 +74,28 @@ public void menu() {
 					System.out.println("PHIEU LAP THEO MA NHA CUNG CAP");
 				    plncc.xuat();
 					break;
+				case 4:
+					break;
 			    default:
 				 break;
 				}
 				break;
 			case 6:
 				System.out.println("----------MENU THONG KE------------");
-				System.out.println("1.THONG KE TONG TIEN NHAP HANG CUA THANG");
-				int thang=Integer.parseInt(sc.nextLine());
-				a.thongKeTienNhapHang(thang);
+				System.out.println("1.THONG KE TONG TIEN NHAP HANG");
+				System.out.println("2.THOAT");
+				int luachonthongke=ValidInput.getValidInteger(sc, "NHAP LUA CHON CUA BAN");
+				switch (luachonthongke) {
+				case 1: 
+					
+					a.thongKeTienNhapHang();
+					break;
+				case 2:
+					break;
+				default:
+					break;
+			
+				}
 				break;
 			case 7:
 				dk=false;

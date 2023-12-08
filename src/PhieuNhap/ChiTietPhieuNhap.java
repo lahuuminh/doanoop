@@ -3,6 +3,8 @@ package PhieuNhap;
 import java.io.Serializable;
 import java.util.Scanner;
 
+import until.ValidInput;
+
 public class ChiTietPhieuNhap implements Serializable{
 	 private static final long serialVersionUID = 1L;
 	private String mapn;
@@ -81,8 +83,8 @@ public void nhap() {
 	
 	System.out.println("nhap  ma san pham");
 	this.masanpham=sc.nextLine();
-	System.out.println("nhap so luong san pham");
-	this.soluong=Integer.parseInt(sc.nextLine());
+//	System.out.println("nhap so luong san pham");
+	this.soluong=ValidInput.getValidInteger(sc,"nhap so luong san pham");
 	
 }
 public void xuat() {

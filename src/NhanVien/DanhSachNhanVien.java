@@ -100,7 +100,7 @@ public class DanhSachNhanVien implements Serializable {
 	}
 	public void xoa() {
 		Scanner sc=new Scanner(System.in);
-		System.out.println("nhap ma hoa don muon xoa");
+		System.out.println("nhap ma nhan vien muon xoa");
 		String ma=sc.nextLine();
 		int vitri=tim(ma);
 		if(vitri==-1) {
@@ -157,7 +157,7 @@ public class DanhSachNhanVien implements Serializable {
 		for (int i = 0; i < n; i++) {
 		  tbluong+=dsnv[i].getLuong();
 		}
-		tbluong/=(n+1);
+		tbluong/=(n);
 		System.out.println("LUONG TRUNG BINH CUA NHAN VIEN:"+tbluong);
 	}
 	public void tKLuongPT() {

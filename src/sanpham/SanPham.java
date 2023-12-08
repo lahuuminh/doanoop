@@ -3,6 +3,8 @@ package sanpham;
 import java.io.Serializable;
 import java.util.Scanner;
 
+import until.ValidInput;
+
 public abstract class SanPham implements Serializable{
 	 private static final long serialVersionUID = 1L;
 	 private  String ma;
@@ -70,10 +72,10 @@ public abstract class SanPham implements Serializable{
 		this.ten=sc.nextLine();
 		System.out.println("nhap don vi tinh san pham");
 		this.donvitinh=sc.nextLine();
-		System.out.println("nhap so luong san pham");
-		this.soluong= Integer.parseInt(sc.nextLine());
-		System.out.println("nhap don gia san pham");
-		this.dongia=Double.parseDouble(sc.nextLine()); 
+//		System.out.println("nhap so luong san pham");
+		this.soluong=ValidInput.getValidInteger(sc,"nhap so luong san pham");
+//		System.out.println("nhap don gia san pham");
+		this.dongia=ValidInput.getValidDouble(sc,"nhap don gia san pham");
 	}
 	public void xuat() {
 		System.out.print("ma:"+this.ma+",ten:"+this.ten+",donvitinh:"+this.donvitinh+",dongia:"+this.dongia+",soluong:"+this.soluong);

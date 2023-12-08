@@ -15,7 +15,7 @@ import khachhang.KhachHang;
 
 public class DanhSachNhaCungCap implements Serializable {
 	 private static final long serialVersionUID = 1L;
-     private NhaCungCap[] dsncc=new NhaCungCap[100];
+     private  NhaCungCap[] dsncc=new NhaCungCap[100];
      private int n;
 	public DanhSachNhaCungCap(int n) {
 		this.n = n;

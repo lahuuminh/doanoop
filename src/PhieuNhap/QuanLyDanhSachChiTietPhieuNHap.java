@@ -3,6 +3,7 @@ package PhieuNhap;
 import java.util.Scanner;
 
 import sanpham.DanhSachSanPham;
+import until.ValidInput;
 
 public class QuanLyDanhSachChiTietPhieuNHap {
 
@@ -21,10 +22,10 @@ public void menu() {
 			System.out.println("3.XOA CHI TIEIT PHIEU NHAP");
 			System.out.println("4.SUA THONG TIN CHI TIET PHIEU NHAP");
 			System.out.println("5.TIM KIEM PHIEU NHAP");
-			System.out.println("6THOAT");
-			System.out.println("NHAP LUA CHON");
+			System.out.println("6.THOAT");
+//			System.out.println("NHAP LUA CHON");
 			Scanner sc=new Scanner(System.in);
-			luachon = Integer.parseInt(sc.nextLine());
+			luachon = ValidInput.getValidInteger(sc,"NHAP LUA CHON");
 			switch (luachon) {
 			case 1:
 				System.out.println("DANH SACH CHI TIET PHIEU NHAP");
@@ -45,8 +46,9 @@ public void menu() {
 				System.out.println("1.TIM KIEM MA CHI TIET PHIEU NHAP");
 				System.out.println("2.TIM KIEM THEO MA SAN PhAM");
 				System.out.println("3.TIM KIEM THEO TIEN");
-				System.out.println("NHAP LUA CHON");
-				luachontimkiem = Integer.parseInt(sc.nextLine());
+				System.out.println("4.THOAT");
+//				System.out.println("NHAP LUA CHON");
+				luachontimkiem = ValidInput.getValidInteger(sc,"NHAP LUA CHON");
 				switch (luachontimkiem) {
 				case 1:
 					System.out.println("NHAP MA CHI TIET PHIEU NHAP");
@@ -63,8 +65,8 @@ public void menu() {
 				    pnnl.xuat();
 					break;
 				case 3:
-					System.out.println("NHAP THEO TONG TIEN");
-					double tien=Double.parseDouble(sc.nextLine());
+//					System.out.println("NHAP THEO TONG TIEN");
+					double tien=ValidInput.getValidDouble(sc,"NHAP TONG TIEN");
 					DanhSachChiTietPhieuNhap plncc=a.timTien(tien);
 					System.out.println("PHIEU LAP THEO TIEN");
 				    plncc.xuat();
@@ -72,6 +74,7 @@ public void menu() {
 			default:
 				break;
 				}
+				break;
 			case 6:
 			dk=false;
 			break;

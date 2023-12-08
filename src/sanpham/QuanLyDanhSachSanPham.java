@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 import hoadon.DanhSachChiTietHoaDon;
+import until.ValidInput;
 
 
 
@@ -31,9 +32,9 @@ public void menu() {
 			System.out.println("5.TIM KIEM SAN PHAM");
 			System.out.println("6.THONG KE SAN PHAM");
 			System.out.println("7.THOAT");
-			System.out.println("NHAP LUA CHON");
+//			System.out.println("NHAP LUA CHON");
 			Scanner sc=new Scanner(System.in);
-			luachon = Integer.parseInt(sc.nextLine());
+			luachon = ValidInput.getValidInteger(sc,"NHAP LUA CHON");
 			switch (luachon) {
 			case 1:
 				System.out.println("DANH SACH SAN PHAM");
@@ -54,8 +55,9 @@ public void menu() {
 				System.out.println("1.TIM KIEM THEO TEN SAN PHAM");
 				System.out.println("2.TIM KIEM THEO MA SAN PHAM");
 				System.out.println("3.TIM KIEM THEO VUNG GIA CUA SAN PHAM");
-				System.out.println("NHAP LUA CHON");
-				luachontimkiem = Integer.parseInt(sc.nextLine());
+				System.out.println("4.THOAT");
+//				System.out.println("NHAP LUA CHON");
+				luachontimkiem = ValidInput.getValidInteger(sc,"NHAP LUA CHON");
 				switch (luachontimkiem) {
 				case 1:
 					System.out.println("NHAP TEN SAN PHAM");
@@ -80,7 +82,8 @@ public void menu() {
 					System.out.println("SAN PHAM THEO VUNG GIA");
 				    spgia.xuat();
 					break;
-				
+				case 4:
+					break;
 			default:
 				break;
 }
@@ -90,13 +93,16 @@ public void menu() {
 					System.out.println("----------MENU THONG KE------------");
 					System.out.println("1.THONG KE SO LUONG BAN DUOC CUA TUNG SAN PHAM");
 					System.out.println("2.THONG KE DOAN THU CUA TUNG SAN PHAM");
-					luachonthongke = Integer.parseInt(sc.nextLine());
+					System.out.println("3.THOAT");
+					luachonthongke=ValidInput.getValidInteger(sc,"nhap lua chon");
 					switch (luachonthongke) {
 					case 1:
 						a.thongKeSPBDC(dscthd.getDscthd(),dscthd.getN());
 						break;
 					case 2:
 						a.thongKeDTSP(dscthd.getDscthd(),dscthd.getN());
+						break;
+					case 3:
 						break;
 				    default:
 					  break;

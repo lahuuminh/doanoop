@@ -11,8 +11,10 @@ import java.time.Year;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Scanner;
+
 import sanpham.DanhSachSanPham;
 import sanpham.SanPham;
+import until.ValidInput;
 public class DanhSachHoaDon implements Serializable{
 	 private static final long serialVersionUID =1L;
 	private HoaDon[] dshd=new HoaDon[100];
@@ -77,8 +79,8 @@ public class DanhSachHoaDon implements Serializable{
 		
 		hd.nhap();
 		double tongtien=0;
-		System.out.println("nhap so luong san pham muon mua");
-		int sl=Integer.parseInt(sc.nextLine());
+//		System.out.println("nhap so luong san pham muon mua");
+		int sl=ValidInput.getValidInteger(sc,"nhap so luong san pham muon mua");
 		for (int i = 0; i < sl; i++) {
 			SanPham sp;
 			ChiTietHoaDon cthd=new ChiTietHoaDon();

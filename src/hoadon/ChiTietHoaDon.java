@@ -3,6 +3,8 @@ package hoadon;
 import java.io.Serializable;
 import java.util.Scanner;
 
+import until.ValidInput;
+
 public class ChiTietHoaDon implements Serializable {
 	 private static final long serialVersionUID = 1L;
 	private String mahd;
@@ -69,8 +71,8 @@ public class ChiTietHoaDon implements Serializable {
 		Scanner sc=new Scanner(System.in);
 		System.out.println("nhap ma san pham");
 		this.masp=sc.nextLine();
-		System.out.println("nhap so luong");
-		this.soluong=sc.nextInt();
+//		System.out.println("nhap so luong");
+		this.soluong=ValidInput.getValidInteger(sc, "nhap so luong");
 	}
 	public void xuat() {
 		System.out.println(this);

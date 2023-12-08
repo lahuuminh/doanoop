@@ -13,7 +13,7 @@ import hoadon.DanhSachHoaDon;
 
 public class DanhSachKhachHang implements DanhSachKhachHangI,Serializable {
 	 private static final long serialVersionUID = 1L;
-  private KhachHang[] dskh=new KhachHang[100];
+  private  KhachHang[] dskh=new KhachHang[100];
   private int n;
 public DanhSachKhachHang(int n) {
 	
@@ -168,7 +168,7 @@ public void TKTen(String ten) {
 			count++;
 		}
 	}
-	System.out.println("SO NGUUOI CO TEN "+ten+"la:"+count);
+	System.out.println("SO NGUUOI CO TEN "+ten +"la:"+count);
 }
 public void ghi() {
 	 String filePath = "khachhang.dat";

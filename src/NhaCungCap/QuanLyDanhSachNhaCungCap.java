@@ -2,6 +2,8 @@ package NhaCungCap;
 
 import java.util.Scanner;
 
+import until.ValidInput;
+
 public class QuanLyDanhSachNhaCungCap {
 		public void menu() {
 				
@@ -18,9 +20,9 @@ public class QuanLyDanhSachNhaCungCap {
 					System.out.println("4.SUA THONG TIN NHA CUNG CAP");
 					System.out.println("5.TIM KIEM NHA CUNG CAP");
 					System.out.println("6.THOAT");
-					System.out.println("NHAP LUA CHON");
+//					System.out.println("NHAP LUA CHON");
 					Scanner sc=new Scanner(System.in);
-					luachon = Integer.parseInt(sc.nextLine());
+					luachon =ValidInput.getValidInteger(sc,"NHAP LUA CHON");
 					switch (luachon) {
 					case 1:
 						System.out.println("DANH SACH KHACH HANG");
@@ -40,8 +42,9 @@ public class QuanLyDanhSachNhaCungCap {
 						System.out.println("----------MENU TIM KIEM------------");
 						System.out.println("1.TIM KIEM THEO MA NHA CUNG CAP");
 						System.out.println("2.TIM KIEM THEO TEN NHAN CUNG CAP");
-						System.out.println("NHAP LUA CHON");
-						luachontimkiem = Integer.parseInt(sc.nextLine());
+						System.out.println("3.THOAT");
+//						System.out.println("NHAP LUA CHON");
+						luachontimkiem =ValidInput.getValidInteger(sc,"NHAP LUA CHON");
 						switch (luachontimkiem) {
 						case 1:
 							System.out.println("NHAP MA NHA CUNG CAP");
@@ -56,6 +59,8 @@ public class QuanLyDanhSachNhaCungCap {
 							DanhSachNhaCungCap nccten =a.timTen(ten);
 							System.out.println("NHA CUNG CAP THEO TEN");
 						    nccten.xuat();
+							break;
+						case 3:
 							break;
 					default:
 						break;

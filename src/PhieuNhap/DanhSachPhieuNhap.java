@@ -18,6 +18,7 @@ import sanpham.NuocUong;
 import sanpham.QuanLyDanhSachSanPham;
 import sanpham.SanPham;
 import sanpham.ThucAn;
+import until.ValidInput;
 
 public class DanhSachPhieuNhap implements Serializable{
 	 private static final long serialVersionUID = 1L;
@@ -82,8 +83,8 @@ public class DanhSachPhieuNhap implements Serializable{
 		Scanner sc=new Scanner(System.in);
 		PhieuNhap pn=new PhieuNhap();
 		pn.nhap();
-		System.out.println("nhap so luong san pham");
-		int soluong=Integer.parseInt(sc.nextLine());
+//		System.out.println("nhap so luong san pham");
+		int soluong=ValidInput.getValidInteger(sc, "nhap so luong san pham");
 		double tongtien=0;
 		for (int i = 0; i <soluong; i++) {
 			ChiTietPhieuNhap ctpn=new ChiTietPhieuNhap();
@@ -199,7 +200,7 @@ public class DanhSachPhieuNhap implements Serializable{
 		
 
 	}
-	public void thongKeTienNhapHang(int th) {
+	public void thongKeTienNhapHang() {
 		float tongtien=0;
 		for (int i = 0; i < n; i++) {
 			

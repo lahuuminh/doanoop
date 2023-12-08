@@ -3,6 +3,8 @@ package hoadon;
 import java.io.Serializable;
 import java.util.Scanner;
 
+import until.ValidInput;
+
 public class HoaDon implements Serializable {
 	 private static final long serialVersionUID = 1L;
 	private String ma;
@@ -70,8 +72,8 @@ public HoaDon(HoaDon d) {
 		this.makhach=sc.nextLine();
 		System.out.println("nhap ma nhan vien");
 		this.manhanvien=sc.nextLine();
-		System.out.println("nhap  ngay lap hoa don");
-		this.ngaylap=sc.nextLine();	
+//		System.out.println("nhap  ngay lap hoa don");
+		this.ngaylap=ValidInput.getValidDate(sc, "nhap  ngay lap hoa don");
 	}
 	public void xuat() {
 		System.out.println(this);

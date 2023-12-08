@@ -2,6 +2,8 @@ package hoadon;
 
 import java.util.Scanner;
 
+import until.ValidInput;
+
 public class QuanLyDanhSachChiTietHoaDon {
 	public void menu() {
 		
@@ -21,9 +23,9 @@ public class QuanLyDanhSachChiTietHoaDon {
 		System.out.println("4.SUA THONG TIN CHI TIET HOA DON");
 		System.out.println("5.TIM KIEM CHI TIET HOA DON");
 		System.out.println("6.THOAT");
-		System.out.println("NHAP LUA CHON");
+//		System.out.println("NHAP LUA CHON");
 		Scanner sc=new Scanner(System.in);
-		luachon = Integer.parseInt(sc.nextLine());
+		luachon =ValidInput.getValidInteger(sc,"NHAP LUA CHON");
 		switch (luachon) {
 		case 1:
 			System.out.println("DANH SACH CHI TIET HOA DON");
@@ -43,9 +45,10 @@ public class QuanLyDanhSachChiTietHoaDon {
 			System.out.println("1.XEM CHI TIET HOA DON THEO MA HOA DON");
 			System.out.println("2.TIM CHI TIET HOA DON THEO MA SAN PHAM");
 			System.out.println("3.TIM CHI TIET HOA DON THEO TIEN");
+			System.out.println("4.THOAT");
 			int luachontim;
-			System.out.println("NHAP LUA CHON CUA BAN");
-			luachontim=Integer.parseInt(sc.nextLine());
+//			System.out.println("NHAP LUA CHON CUA BAN");
+			luachontim=ValidInput.getValidInteger(sc,"NHAP LUA CHON CUA BAN");
 			switch (luachontim) {
 			case 1:
 				String ma;
@@ -65,13 +68,14 @@ public class QuanLyDanhSachChiTietHoaDon {
 				break;
 			case 3:
 				double tien;
-				System.out.println("NHAP MA HOA DON");
-				 tien=Double.parseDouble(sc.nextLine());
+//				System.out.println("NHAP MA HOA DON");
+				 tien=ValidInput.getValidDouble(sc,"NHAP MA HOA DON");
 				 DanhSachChiTietHoaDon dscthdt= dscthd.timTien(tien);
 				 System.out.println("DANH SACH CHI TIET HOA DON THEO TIEN");
 				 dscthdt.xuat();
 				break;
-
+			case 4:
+				break;
 			default:
 				break;
 			}
