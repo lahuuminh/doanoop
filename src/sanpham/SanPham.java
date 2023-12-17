@@ -66,7 +66,7 @@ public abstract class SanPham implements Serializable{
 	};
 	public void nhap() {
 		Scanner sc=new Scanner(System.in);
-		System.out.println("nhap ma san pham");
+		System.out.println("nhap  ma san pham");
 		this.ma=sc.nextLine();
 		System.out.println("nhap  ten san pham");
 		this.ten=sc.nextLine();

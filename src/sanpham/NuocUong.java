@@ -59,14 +59,11 @@ public class NuocUong extends SanPham implements Serializable {
 		this.theloai=sc.nextLine();
 		System.out.println("nhap nuoc it duong hay nhieu duong");
 		this.duong=sc.nextLine();
-	
-		
-		
 	}
 	public void xuat() {
-		super.xuat();
-		System.out.print(",theloai:"+this.theloai+",duong:"+this.duong);
-			System.out.println();
+        String row = String.format("%-20s%-20s%-20s%-20.2f%-20d%-20s%s",this.getMa(),this.getTen(),this.getDonvitinh(),this.getDongia(),this.getSoluong(),this.getTheloai(),this.getDuong());
+		
+	    System.out.println(row);
 	
 		}
 	@Override

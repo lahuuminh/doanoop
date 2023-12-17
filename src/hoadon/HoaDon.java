@@ -76,6 +76,7 @@ public HoaDon(HoaDon d) {
 		this.ngaylap=ValidInput.getValidDate(sc, "nhap  ngay lap hoa don");
 	}
 	public void xuat() {
-		System.out.println(this);
+		String row = String.format("%-30s%-30s%-30s%-30s%.2f",this.getMa(),this.getManhanvien(),this.getMakhach(),this.getNgaylap(),this.getTongtien());
+        System.out.println(row);
 	}
 }

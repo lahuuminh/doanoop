@@ -47,9 +47,9 @@ public class ThucAn extends SanPham implements Serializable{
 		
 	}
 	public void xuat() {
-		super.xuat();
-		System.out.print(",cachthucchebien:"+this.cachthucchebien);
-	    System.out.println();
+		String row = String.format("%-20s%-20s%-20s%-20.2f%-20d%s",this.getMa(),this.getTen(),this.getDonvitinh(),this.getDongia(),this.getSoluong(),this.getCachthucchebien());
+		
+	    System.out.println(row);
 	
 		}
 

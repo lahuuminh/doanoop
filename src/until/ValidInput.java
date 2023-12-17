@@ -59,7 +59,7 @@ public class ValidInput {
 	public static String getValidDate(Scanner scanner, String prompt) {
         String number = "";
         boolean isValid = false;
-        String regex="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}";
+        String regex="^([1-9]|[12][0-9]|3[01])/([1-9]|1[0-2])/(\\d{4})$";
 
         while (!isValid) {
            

@@ -14,7 +14,7 @@ import hoadon.DanhSachHoaDon;
 
 public class DanhSachChiTietPhieuNhap implements Serializable{
 	 private static final long serialVersionUID = 1L;
-	private ChiTietPhieuNhap[] ctpn=new ChiTietPhieuNhap[100];
+	private ChiTietPhieuNhap[] ctpn=new ChiTietPhieuNhap[1000];
     private int n;
     public DanhSachChiTietPhieuNhap() {
 		
@@ -63,10 +63,11 @@ public class DanhSachChiTietPhieuNhap implements Serializable{
 
 		}
 	public void xuat(){
-
+		String header1 = String.format("%-30s%-30s%-30s%-30s%s","Ma phieu nhap","Ma san pham","So luong","Don gia","Thanh tien");
+        System.out.println(header1);
 		for (int i=0;i<n;i++){
 
-	System.out.println(ctpn[i]);
+	     ctpn[i].xuat();
 
 		}
 
@@ -145,7 +146,7 @@ public class DanhSachChiTietPhieuNhap implements Serializable{
 		DanhSachChiTietPhieuNhap dsctpn=new DanhSachChiTietPhieuNhap();
 		
 		for(int i=0;i<n;i++) {
-		if(ctpn[i].getMapn().compareTo(ma)==0) {
+		if(ctpn[i].getMasanpham().compareTo(ma)==0) {
 		  dsctpn.them(ctpn[i]);
 		}
 	}

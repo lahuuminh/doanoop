@@ -61,10 +61,12 @@ public class DanhSachNhaCungCap implements Serializable {
 		}
 		}
 	public void xuat(){
+		String header1 = String.format("%-30s%-30s%s","Ma","Ten","Dia chi");
+        System.out.println(header1);
 
 		for (int i=0;i<n;i++){
 
-	System.out.println(dsncc[i]);
+	dsncc[i].xuat();
 
 		}
 
@@ -103,7 +105,7 @@ public class DanhSachNhaCungCap implements Serializable {
 		String ma=sc.nextLine();
 		int vitri=tim(ma);
 		if(vitri==-1) {
-			System.out.println("khong co cung cap nao co ma nay");
+			System.out.println("khong co nha cung cap nao co ma nay");
 			return ;
 		}
 		for(int i=vitri;i<n;i++) {
@@ -114,11 +116,11 @@ public class DanhSachNhaCungCap implements Serializable {
 	}
 	public void suaTheoMa() {
 		Scanner sc=new Scanner(System.in);
-		System.out.println("nhap nha cung cap muon sua");
+		System.out.println("nhap ma nha cung cap muon sua");
 		String ma=sc.nextLine();
 		int vitri=tim(ma);
 		if(vitri==-1) {
-			System.out.println("khong co khach hang nao co ma nay");
+			System.out.println("khong co nha cung cap nao co ma nay");
 			return ;
 		}
 		System.out.println("nha cung truoc khi sua");
@@ -134,6 +136,18 @@ public class DanhSachNhaCungCap implements Serializable {
 		
 		for(int i=0;i<n;i++) {
 		if(dsncc[i].getMa().compareTo(ma)==0) {
+		  ncc.them(dsncc[i]);
+		}
+	}
+		return ncc;
+		
+
+	}
+	public DanhSachNhaCungCap timDC(String dc) {
+		DanhSachNhaCungCap ncc=new DanhSachNhaCungCap();
+		
+		for(int i=0;i<n;i++) {
+		if(dsncc[i].getDiachi().compareTo(dc)==0) {
 		  ncc.them(dsncc[i]);
 		}
 	}

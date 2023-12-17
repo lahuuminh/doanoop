@@ -25,7 +25,7 @@ public class QuanLyDanhSachNhaCungCap {
 					luachon =ValidInput.getValidInteger(sc,"NHAP LUA CHON");
 					switch (luachon) {
 					case 1:
-						System.out.println("DANH SACH KHACH HANG");
+						System.out.println("DANH SACH NHA CUNG CAP");
 						a.xuat();
 						break;
 					case 2:
@@ -38,33 +38,47 @@ public class QuanLyDanhSachNhaCungCap {
 						a.suaTheoMa();
 						break;
 					case 5:
-		                int luachontimkiem;
-						System.out.println("----------MENU TIM KIEM------------");
-						System.out.println("1.TIM KIEM THEO MA NHA CUNG CAP");
-						System.out.println("2.TIM KIEM THEO TEN NHAN CUNG CAP");
-						System.out.println("3.THOAT");
+						Boolean flag=true;
+						while(flag) {
+							
+							int luachontimkiem;
+							System.out.println("----------MENU TIM KIEM------------");
+							System.out.println("1.TIM KIEM THEO MA NHA CUNG CAP");
+							System.out.println("2.TIM KIEM THEO TEN NHAN CUNG CAP");
+							System.out.println("3.TIM KIEM THEO DIA CHI NHAN CUNG CAP");
+							System.out.println("4.THOAT");
 //						System.out.println("NHAP LUA CHON");
-						luachontimkiem =ValidInput.getValidInteger(sc,"NHAP LUA CHON");
-						switch (luachontimkiem) {
-						case 1:
-							System.out.println("NHAP MA NHA CUNG CAP");
-							String ma=sc.nextLine();
-							DanhSachNhaCungCap nccma =a.timMa(ma);
-							System.out.println("NHA CUNG CAP THEO MA");
-						    nccma.xuat();
-							break;
-						case 2:
-							System.out.println("NHAP TEN NHA CUNG CAP");
-							String ten=sc.nextLine();
-							DanhSachNhaCungCap nccten =a.timTen(ten);
-							System.out.println("NHA CUNG CAP THEO TEN");
-						    nccten.xuat();
-							break;
-						case 3:
-							break;
-					default:
-						break;
+							luachontimkiem =ValidInput.getValidInteger(sc,"NHAP LUA CHON");
+							switch (luachontimkiem) {
+							case 1:
+								System.out.println("NHAP MA NHA CUNG CAP");
+								String ma=sc.nextLine();
+								DanhSachNhaCungCap nccma =a.timMa(ma);
+								System.out.println("NHA CUNG CAP THEO MA");
+								nccma.xuat();
+								break;
+							case 2:
+								System.out.println("NHAP TEN NHA CUNG CAP");
+								String ten=sc.nextLine();
+								DanhSachNhaCungCap nccten =a.timTen(ten);
+								System.out.println("NHA CUNG CAP THEO TEN");
+								nccten.xuat();
+								break;
+							case 3:
+								System.out.println("NHAP DIA CHI NHA CUNG CAP");
+								String dc=sc.nextLine();
+								DanhSachNhaCungCap nccdc =a.timDC(dc);
+								System.out.println("NHA CUNG CAP THEO DIA CHI");
+								nccdc.xuat();
+								break;
+							case 4:
+								flag=false;
+								break;
+							default:
+								break;
+							}
 						}
+						break;
 					case 6:
 						dk=false;
 						break;

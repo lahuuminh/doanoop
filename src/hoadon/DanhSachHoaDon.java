@@ -65,10 +65,11 @@ public class DanhSachHoaDon implements Serializable{
 
 		}
 	public void xuat(){
-
+		String header1 = String.format("%-30s%-30s%-30s%-30s%s","Ma hoa don","Ma nhan vien","Ma khach","Ngay lap","Tong tien");
+        System.out.println(header1);
 		for (int i=0;i<n;i++){
 
-	System.out.println(dshd[i]);
+	dshd[i].xuat();;
 
 		}
 
@@ -76,7 +77,6 @@ public class DanhSachHoaDon implements Serializable{
 	public void them(DanhSachSanPham dssp,DanhSachChiTietHoaDon dscthd){
 		Scanner sc=new Scanner(System.in);
 		HoaDon hd=new HoaDon();
-		
 		hd.nhap();
 		double tongtien=0;
 //		System.out.println("nhap so luong san pham muon mua");
@@ -113,8 +113,14 @@ public class DanhSachHoaDon implements Serializable{
 			
 			hd.setTongtien(tongtien);
 			dshd[n]=hd;
+			System.out.println("Tao hoa don thanh cong,hoa don cua ban la");
+			String header1 = String.format("%-30s%-30s%-30s%-30s%s","Ma hoa don","Ma nhan vien","Ma khach","Ngay lap","Tong tien");
+	        System.out.println(header1);
+			dshd[n].xuat();
+			System.out.println("Cac mat hang trong hoa don");
+			DanhSachChiTietHoaDon temp=dscthd.timMaHd(hd.getMa());
+			temp.xuat();
 			n++;
-			System.out.println();
 		}
 		}
 	public void them(HoaDon x){
@@ -194,15 +200,13 @@ public class DanhSachHoaDon implements Serializable{
 	}
 		return hd;
 	}
-	public DanhSachHoaDon timNLK(String bd,String kt) throws ParseException {
+	public DanhSachHoaDon timMaHoaDon(String ma) {
 		DanhSachHoaDon hd=new DanhSachHoaDon();
-		 Date datebd=new SimpleDateFormat("dd/MM/yyyy").parse(bd);  
-		 Date datekt=new SimpleDateFormat("dd/MM/yyyy").parse(kt);  
+		
 		for(int i=0;i<n;i++) {
-			 Date date=new SimpleDateFormat("dd/MM/yyyy").parse(dshd[i].getNgaylap());  
-			 if(date.before(datekt)&&date.after(datebd));{
-				 hd.them(dshd[i]);
-			 }
+		if(dshd[i].getMa().compareTo(ma)==0) {
+		  hd.them(dshd[i]);
+		}
 	}
 		return hd;
 	}
@@ -248,10 +252,19 @@ public class DanhSachHoaDon implements Serializable{
 			}
 		
 		}
-		System.out.println("DOANH THU THEO QUY1:"+q1+" NAM:"+year);
-		System.out.println("DOANH THU THEO QUY2:"+q2+" NAM:"+year);
-		System.out.println("DOANH THU THEO QUY3:"+q3+" NAM:"+year);
-		System.out.println("DOANH THU THEO QUY4:"+q4+" NAM:"+year);
+		String header=String.format("%-30s%-30s%s","Nam","Quy","Doanh thu");
+		System.out.println(header);
+		String row1=String.format("%-30s%-30s%.2f","2023","1",q1);
+		String row2=String.format("%-30s%-30s%.2f","2023","2",q2);
+		String row3=String.format("%-30s%-30s%.2f","2023","3",q3);
+		String row4=String.format("%-30s%-30s%.2f","2023","4",q4);
+		System.out.println(row1);
+		System.out.println(row2);
+		System.out.println(row3);
+		System.out.println(row4);
+		
+
+		
 		
 		
 	}

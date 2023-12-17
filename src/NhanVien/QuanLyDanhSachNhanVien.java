@@ -26,7 +26,7 @@ public class QuanLyDanhSachNhanVien{
 				luachon = ValidInput.getValidInteger(sc,"NHAP LUA CHON" );
 				switch (luachon) {
 				case 1:
-					System.out.println("DANH SACH KHACH HANG");
+					System.out.println("DANH SACH NHAN VIEN");
 					a.xuat();
 					break;
 				case 2:
@@ -39,52 +39,78 @@ public class QuanLyDanhSachNhanVien{
 					a.suaTheoMa();
 					break;
 				case 5:
-	                int luachontimkiem;
-					System.out.println("----------MENU TIM KIEM------------");
-					System.out.println("1.TIM KIEM THEO LUONG NHAN VIEN");
-					System.out.println("2.TIM KIEM THEO NGAY SINH NHAN VIEN");
-					System.out.println("3.THOAT");
-//					System.out.println("NHAP LUA CHON");
-					luachontimkiem =ValidInput.getValidInteger(sc,"NHAP LUA CHON");
-					switch (luachontimkiem) {
-					case 1:
-//						System.out.println("NHAP LUONG NHAN VIEN");
-						float luong=ValidInput.getValidFloat(sc, "NHAP LUONG NHAN VIEN");
-						DanhSachNhanVien nvluong =a.timLuong(luong);
-						System.out.println("NHAN VIEN THEO LUONG");
-					    nvluong.xuat();
-						break;
-					case 2:
-//						System.out.println("NHAP NGAY SINH NHAN VIEN");
-						String ngaysinh=ValidInput.getValidDate(sc,"NHAP NGAY SINH NHAN VIEN");
-						DanhSachNhanVien nvngaysinh =a.timNgaySinh(ngaysinh);
-						System.out.println("NHAN VIEN THEO NGAY SINH");
-					    nvngaysinh.xuat();
-						break;
-					case 3:
-						break;
-				default:
-					break;
+					Boolean flag=true;
+					while(flag) {
+						  int luachontimkiem;
+							System.out.println("----------MENU TIM KIEM------------");
+							System.out.println("1.TIM KIEM THEO LUONG NHAN VIEN");
+							System.out.println("2.TIM KIEM THEO NGAY SINH NHAN VIEN");
+							System.out.println("3.TIM KIEM THEO TEN NHAN VIEN");
+							System.out.println("4.TIM KIEM THEO MA NHAN VIEN");
+							System.out.println("5.THOAT");
+//							System.out.println("NHAP LUA CHON");
+							luachontimkiem=ValidInput.getValidInteger(sc,"NHAP LUA CHON");
+							switch (luachontimkiem) {
+							case 1:
+//								System.out.println("NHAP LUONG NHAN VIEN");
+								float luong=ValidInput.getValidFloat(sc, "NHAP LUONG NHAN VIEN");
+								DanhSachNhanVien nvluong =a.timLuong(luong);
+								System.out.println("NHAN VIEN THEO LUONG");
+							    nvluong.xuat();
+								break;
+							case 2:
+//								System.out.println("NHAP NGAY SINH NHAN VIEN");
+								String ngaysinh=ValidInput.getValidDate(sc,"NHAP NGAY SINH NHAN VIEN");
+								DanhSachNhanVien nvngaysinh =a.timNgaySinh(ngaysinh);
+								System.out.println("NHAN VIEN THEO NGAY SINH");
+							    nvngaysinh.xuat();
+								break;
+								case 3:
+									System.out.println("NHAP TEN NHAN VIEN");
+		//
+									String ten=sc.nextLine();
+									DanhSachNhanVien nvnten =a.timnTen(ten);
+									System.out.println("NHAN VIEN THEO TEN");
+									nvnten.xuat();
+									break;
+								case 4:
+//								System.out.println("NHAP MA NHAN VIEN");
+									String ma= String.valueOf(ValidInput.getValidInteger(sc,"NHAP MA NHAN VIEN"));
+									DanhSachNhanVien nvnma =a.timnyMa(ma);
+									System.out.println("NHAN VIEN THEO MA");
+									nvnma.xuat();
+									break;
+
+							case 5:
+								flag=false;
+								break;
+						default:
+							break;
+							}
 					}
 					break;
 				case 6:
-					int luachonthongke;
-					System.out.println("----------MENU THONG KE------------");
-					System.out.println("1.THONG KE THEO LUONG NHAN VIEN TRUNG BINH");
-					System.out.println("2.THONG KE LUONG MOI THANG PHAI TRA CHO NHAN VIEN");
-					System.out.println("3.THOAT");
-					luachonthongke =ValidInput.getValidInteger(sc,"NHAP LUA CHON CUA BAN");
-					switch (luachonthongke) {
-					case 1: 
-						a.TKluong();
-						break;
-					case 2: 
-						a.tKLuongPT();
-						break;
-					case 3:
-						break;
-					default:
-					break;
+					Boolean flagtk=true;
+					while(flagtk) {
+						int luachonthongke;
+						System.out.println("----------MENU THONG KE------------");
+						System.out.println("1.THONG KE THEO LUONG NHAN VIEN TRUNG BINH");
+						System.out.println("2.THONG KE LUONG MOI THANG PHAI TRA CHO NHAN VIEN");
+						System.out.println("3.THOAT");
+						luachonthongke =ValidInput.getValidInteger(sc,"NHAP LUA CHON CUA BAN");
+						switch (luachonthongke) {
+						case 1: 
+							a.TKluong();
+							break;
+						case 2: 
+							a.tKLuongPT();
+							break;
+						case 3:
+							flagtk=false;
+							break;
+						default:
+							break;
+						}
 					}
 				break;
 				case 7:

@@ -9,30 +9,31 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import hoadon.DanhSachHoaDon;
+
 
 public class DanhSachKhachHang implements DanhSachKhachHangI,Serializable {
 	 private static final long serialVersionUID = 1L;
-  private  KhachHang[] dskh=new KhachHang[100];
+  private static  KhachHang[] dskh=new KhachHang[100];
   private int n;
 public DanhSachKhachHang(int n) {
 	
 	this.n = n;
 }
+public static KhachHang[] getDskh() {
+	return dskh;
+}
+public static void setDskh(KhachHang[] dskh) {
+	DanhSachKhachHang.dskh = dskh;
+}
 public DanhSachKhachHang() {
 	this.n=0;
 }
 public DanhSachKhachHang(DanhSachKhachHang d) {
-	this.dskh=d.dskh;
+	
 	this.n=d.n;
 	
 }
-public KhachHang[] getDskh() {
-	return dskh;
-}
-public void setDskh(KhachHang[] dskh) {
-	this.dskh = dskh;
-}
+
 public int getN() {
 	return n;
 }
@@ -61,10 +62,15 @@ public void nhap(){
 	}
 	}
 public void xuat(){
-
+//	private String ma;
+//	private String ho;
+//	private String ten;
+//	private String diachi;
+//	private String dienthoai;
+    String header = String.format("%-30s%-30s%-30s%-30s%s","Ma","Ho","Ten","Dia chi","Dien thoai");
+    System.out.println(header);
 	for (int i=0;i<n;i++){
-
-System.out.println(dskh[i]);
+dskh[i].xuat();
 
 	}
 
@@ -122,45 +128,61 @@ public void suaTheoMa() {
 		return ;
 	}
 	System.out.println("hoa don truoc khi sua");
+	  String header = String.format("%-30s%-30s%-30s%-30s%s","Ma","Ho","Ten","Dia chi","Dien thoai");
+		System.out.println(header);
     dskh[vitri].xuat();
 	dskh[vitri]=new KhachHang();
 	dskh[vitri].nhap();
 	System.out.println("sua thanh cong");
 	System.out.println("sau khi sua");
+	System.out.println(header);
 	dskh[vitri].xuat();
 }
-public DanhSachKhachHang timMa(String ma) {
-	DanhSachKhachHang kh=new DanhSachKhachHang();
-	
+
+public void timMa(String ma) {
+	  String header = String.format("%-30s%-30s%-30s%-30s%s","Ma","Ho","Ten","Dia chi","Dien thoai");
+	System.out.println(header);
 	for(int i=0;i<n;i++) {
 	if(dskh[i].getMa().compareTo(ma)==0) {
-	  kh.them(dskh[i]);
+	 dskh[i].xuat();;
 	}
 }
-	return kh;
 	
 
 }
-public DanhSachKhachHang timHo(String ho) {
-	DanhSachKhachHang kh=new DanhSachKhachHang();
+public void timHo(String ho) {
+	  String header = String.format("%-30s%-30s%-30s%-30s%s","Ma","Ho","Ten","Dia chi","Dien thoai");
+		System.out.println(header);
 	
 	for(int i=0;i<n;i++) {
 	if(dskh[i].getHo().compareTo(ho)==0) {
-	  kh.them(dskh[i]);
+	  dskh[i].xuat();
 	}
 }
-	return kh;
+	
 }
-public DanhSachKhachHang timSDT(String sdt) {
-	DanhSachKhachHang kh=new DanhSachKhachHang();
+public void timSDT(String sdt) {
+	  String header = String.format("%-30s%-30s%-30s%-30s%s","Ma","Ho","Ten","Dia chi","Dien thoai");
+		System.out.println(header);
 	
 	for(int i=0;i<n;i++) {
-	if(dskh[i].getHo().compareTo(sdt)==0) {
-	  kh.them(dskh[i]);
+	if(dskh[i].getDienthoai().compareTo(sdt)==0) {
+		 dskh[i].xuat();
 	}
 }
-	return kh;
+	
 }
+	public void timTen(String ten) {
+		  String header = String.format("%-30s%-30s%-30s%-30s%s","Ma","Ho","Ten","Dia chi","Dien thoai");
+			System.out.println(header);
+
+		for(int i=0;i<n;i++) {
+			if(dskh[i].getTen().compareTo(ten)==0) {
+				 dskh[i].xuat();
+			}
+		}
+	
+	}
 public void TKTen(String ten) {
 	int count=0;
 	for (int i = 0; i <n; i++) {
@@ -176,7 +198,8 @@ public void ghi() {
        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(filePath))) {
            // Write the array to the file
        
-           objectOutputStream.writeObject(this);
+           objectOutputStream.writeObject(this.n);
+           objectOutputStream.writeObject(DanhSachKhachHang.getDskh());
 
            System.out.println("GHI FILE THANH CONG");
        } catch (IOException e) {
@@ -187,11 +210,12 @@ public void doc() {
 	 String filePath = "khachhang.dat";
 	  try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(filePath))) {
            // Read the object from the file
-          DanhSachKhachHang data = (DanhSachKhachHang) objectInputStream.readObject();
+          int sl = (int) objectInputStream.readObject();
+          KhachHang [] data=(KhachHang[]) objectInputStream.readObject();
 
            // Display the read object
-            this.dskh=data.dskh;
-            this.n=data.n;
+            this.n=sl;
+            DanhSachKhachHang.setDskh(data);
            System.out.println("doc thanh cong");
        } catch (IOException | ClassNotFoundException e) {
            System.err.println("Error reading from the file: " + e.getMessage());

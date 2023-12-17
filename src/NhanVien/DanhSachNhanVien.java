@@ -62,10 +62,12 @@ public class DanhSachNhanVien implements Serializable {
 
 		}
 	public void xuat(){
+		String header1 = String.format("%-30s%-30s%-30s%-30s%s","Ma","Ho","Ten","Ngay sinh","Luong");
+        System.out.println(header1);
 
 		for (int i=0;i<n;i++){
 
-	System.out.println(dsnv[i]);
+	dsnv[i].xuat();
 
 		}
 
@@ -90,7 +92,7 @@ public class DanhSachNhanVien implements Serializable {
 	public void xoa(String ma) {
 		int vitri=tim(ma);
 		if(vitri==-1) {
-			System.out.println("khong co hoa don nao co ma nay");
+			System.out.println("khong co nhan vien nao co ma nay");
 			return ;
 		}
 		for(int i=vitri;i<n;i++) {
@@ -104,7 +106,7 @@ public class DanhSachNhanVien implements Serializable {
 		String ma=sc.nextLine();
 		int vitri=tim(ma);
 		if(vitri==-1) {
-			System.out.println("khong co hoa don nao co ma nay");
+			System.out.println("khong co nhan vien nao co ma nay");
 			return;
 		}
 		for(int i=vitri;i<n;i++) {
@@ -115,14 +117,14 @@ public class DanhSachNhanVien implements Serializable {
 	}	
 	public void suaTheoMa() {
 		Scanner sc=new Scanner(System.in);
-		System.out.println("nhap ma hoa don muon sua");
+		System.out.println("nhap ma nhan vien muon sua");
 		String ma=sc.nextLine();
 		int vitri=tim(ma);
 		if(vitri==-1) {
-			System.out.println("khong co hoa don nao co ma nay");
+			System.out.println("khong co nhan vien nao co ma nay");
 			return ;
 		}
-		System.out.println("hoa don truoc khi sua");
+		System.out.println("nhan vien truoc khi sua");
 	    dsnv[vitri].xuat();
 		dsnv[vitri]=new NhanVien();
 		dsnv[vitri].nhap();
@@ -130,7 +132,7 @@ public class DanhSachNhanVien implements Serializable {
 		System.out.println("sau khi sua");
 		dsnv[vitri].xuat();
 	}
-	public DanhSachNhanVien timLuong(float luong) {
+	DanhSachNhanVien timLuong(float luong) {
 		DanhSachNhanVien nv=new DanhSachNhanVien();
 		
 		for(int i=0;i<n;i++) {
@@ -142,15 +144,40 @@ public class DanhSachNhanVien implements Serializable {
 		
 
 	}
-	public DanhSachNhanVien timNgaySinh(String ngaysinh) {
+	public DanhSachNhanVien timNgaySinh(String ngay) {
 		DanhSachNhanVien nv=new DanhSachNhanVien();
-		
+
 		for(int i=0;i<n;i++) {
-		if(dsnv[i].getNgaysinh().compareTo(ngaysinh)==0) {
-		  nv.them(dsnv[i]);
+			if(dsnv[i].getNgaysinh().compareTo(ngay)==0) {
+				nv.them(dsnv[i]);
+			}
 		}
-	}
 		return nv;
+
+
+	}
+	public DanhSachNhanVien timnTen(String ten) {
+		DanhSachNhanVien nv=new DanhSachNhanVien();
+
+		for(int i=0;i<n;i++) {
+			if(dsnv[i].getTen().compareTo(ten)==0) {
+				nv.them(dsnv[i]);
+			}
+		}
+		return nv;
+
+
+	}public DanhSachNhanVien timnyMa(String ma) {
+		DanhSachNhanVien nv=new DanhSachNhanVien();
+
+		for(int i=0;i<n;i++) {
+			if(dsnv[i].getMa().compareTo(ma)==0) {
+				nv.them(dsnv[i]);
+			}
+		}
+		return nv;
+
+
 	}
 	public void TKluong() {
 		float tbluong=0;

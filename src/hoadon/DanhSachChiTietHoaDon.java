@@ -14,7 +14,7 @@ import PhieuNhap.DanhSachPhieuNhap;
 
 public class DanhSachChiTietHoaDon implements Serializable {
 	 private static final long serialVersionUID = 1L;
-   private ChiTietHoaDon[] dscthd=new ChiTietHoaDon[100];
+   private ChiTietHoaDon[] dscthd=new ChiTietHoaDon[1000];
    private int n;
 public DanhSachChiTietHoaDon(ChiTietHoaDon[] dscthd, int n) {
 
@@ -60,10 +60,11 @@ public void nhap(){
 
 	}
 public void xuat(){
-
+	String header1 = String.format("%-30s%-30s%-30s%-30s%s","Ma hoa don","Ma san pham","So luong","Don gia","Thanh tien");
+    System.out.println(header1);
 	for (int i=0;i<n;i++){
 
-System.out.println(dscthd[i]);
+dscthd[i].xuat();;
 
 	}
 
@@ -78,7 +79,10 @@ public void them(ChiTietHoaDon x){
 	n++;
 	}
 public int tim(String ma) {
-	for(int i=0;i<n;i++) {
+	for(int i=0;i<=n;i++) {
+		if(i==n) {
+			return -2;
+		}
 		if(dscthd[i].getMahd().compareTo(ma)==0) {
 			return i;
 		}
@@ -100,16 +104,24 @@ public void xoa() {
 	Scanner sc=new Scanner(System.in);
 	System.out.println("nhap ma hoa don muon xoa");
 	String ma=sc.nextLine();
-	int vitri=tim(ma);
-	if(vitri==-1) {
-		System.out.println("khong co hoa don nao co ma nay");
-		return ;
+	System.out.println(ma);
+	Boolean flag=true;
+	
+	while(flag) {
+		int vitri=tim(ma);
+		if(vitri==-1) {
+			
+		}else if(vitri==-2){
+			flag=false;
+		}
+		else{
+			for(int i=vitri;i<n;i++) {
+				dscthd[i]=dscthd[i+1];
+			}
+			n--;
+		}
 	}
-	for(int i=vitri;i<n;i++) {
-		dscthd[i]=dscthd[i+1];
-	}
-	n--;
-	System.out.println("xoa thanh cong");
+System.out.println(1);
 }	
 public void suaTheoMa() {
 	Scanner sc=new Scanner(System.in);

@@ -66,7 +66,7 @@ public KhachHang(KhachHang d) {
 	}
 	public void nhap() {
 		Scanner sc=new Scanner(System.in);
-		System.out.println("nhap ma khach");
+		System.out.println("nhap ma khach hang");
 		this.ma=sc.nextLine();
 		System.out.println("nhap  ho khach hang");
 		this.ho=sc.nextLine();
@@ -81,7 +81,8 @@ public KhachHang(KhachHang d) {
 		
 	}
 	public void xuat() {
-		System.out.println(this);
+		  String row = String.format("%-30s%-30s%-30s%-30s%s",this.ma,this.ho,this.ten,this.diachi,this.dienthoai);
+		System.out.println(row);
 	}
 	
 }

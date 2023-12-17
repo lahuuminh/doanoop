@@ -90,7 +90,8 @@ public class NhanVien implements Serializable{
 		
 	}
 	public void xuat() {
-	System.out.println(this);
+		String row = String.format("%-30s%-30s%-30s%-30s%.2f",this.getMa(),this.getHo(),this.getTen(),this.getNgaysinh(),this.getLuong());
+        System.out.println(row);
 		
 	}
 

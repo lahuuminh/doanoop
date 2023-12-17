@@ -75,7 +75,8 @@ public class ChiTietHoaDon implements Serializable {
 		this.soluong=ValidInput.getValidInteger(sc, "nhap so luong");
 	}
 	public void xuat() {
-		System.out.println(this);
+		String row = String.format("%-30s%-30s%-30d%-30.2f%.2f",this.getMahd(),this.getMasp(),this.getSoluong(),this.getDongia(),this.getThanhtien());
+	    System.out.println(row);
 	}
 
 

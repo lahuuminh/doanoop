@@ -83,24 +83,41 @@ public  class DanhSachSanPham implements Serializable {
 
 		}
 	public void xuat(){
+		DanhSachSanPham dsta=new DanhSachSanPham();
+		DanhSachSanPham dsnu=new DanhSachSanPham();
 
 		for (int i=0;i<n;i++){
 
 	if(dssp[i] instanceof ThucAn) {
-		ThucAn a=new ThucAn();
-		a=(ThucAn)dssp[i];
-		a.xuat();
+//		ThucAn a=new ThucAn();
+//		a=(ThucAn)dssp[i];
+//		a.xuat();
+		dsta.them(dssp[i]);
 	}
 	if(dssp[i] instanceof NuocUong) {
 		
-		NuocUong b=new NuocUong();
-		b=(NuocUong)dssp[i];
-		b.xuat();
+//		NuocUong b=new NuocUong();
+//		b=(NuocUong)dssp[i];
+//		b.xuat();
+		dsnu.them(dssp[i]);
 		
 	}
 
 		}
-
+		System.out.println(String.format("%-60s","Danh sach thuc an"));
+		String header1 = String.format("%-20s%-20s%-20s%-20s%-20s%s","Ma","Ten","Don vi tinh","Don gia","So luong","Cach thuc che bien");
+		System.out.println(header1);
+		for (int i = 0; i < dsta.getN(); i++) {
+			ThucAn a=(ThucAn)dsta.getDssp()[i];
+			a.xuat();
+		}
+		System.out.println(String.format("%-60s","Danh sach nuoc uong"));
+		String header2 = String.format("%-20s%-20s%-20s%-20s%-20s%-20s%s","Ma","Ten","Don vi tinh","Don gia","So luong","The loai","Duong");
+        System.out.println(header2);
+        for (int i = 0; i < dsnu.getN(); i++) {
+			NuocUong b=(NuocUong)dsnu.getDssp()[i];
+			b.xuat();
+		}
 		}
 	public void them(){
 		System.out.println("1.Nhap thuc an");
@@ -177,24 +194,22 @@ public  class DanhSachSanPham implements Serializable {
 			System.out.println("khong co san pham nao co ma nay");
 			return ;
 		}
-		
-		if(dssp[vitri] instanceof ThucAn) {
+if(dssp[vitri] instanceof ThucAn) {
+	ThucAn a=(ThucAn) dssp[vitri];
+	System.out.println("san pham truoc khi sua");
+	a.xuat();
+	dssp[vitri].nhap();
+	System.out.println("san pham sau khi sua");
+	dssp[vitri].xuat();
+}else {
+	NuocUong a=(NuocUong) dssp[vitri];
+	System.out.println("san pham truoc khi sua");
+	a.xuat();
+	dssp[vitri].nhap();
+	System.out.println("san pham sau khi sua");
+	dssp[vitri].xuat();
+}
 			
-		
-	
-		dssp[vitri].nhap();
-		dssp[vitri].xuat();
-		}
-		if(dssp[vitri] instanceof NuocUong) {
-			
-			
-		
-			
-			dssp[vitri].nhap();
-			dssp[vitri].xuat();
-			
-		}
-	  
 	}
 	public DanhSachSanPham timTen(String ten) {
 		DanhSachSanPham sp=new DanhSachSanPham();
@@ -233,10 +248,12 @@ public  class DanhSachSanPham implements Serializable {
 	}
 	public void thongKeSPBDC(ChiTietHoaDon a[],int n) {
 	    Map<String, Integer> m=new HashMap<>();
+	    int tong=0;
 		for(int i=0;i<n;i++) {
-		  
+		 
 		  String masp=a[i].getMasp();
 		  int soluong=a[i].getSoluong();
+		  tong+=soluong;
 		  int temp;
 		  if(m.get(masp)==null) {
 			  m.put(masp,soluong);
@@ -245,20 +262,28 @@ public  class DanhSachSanPham implements Serializable {
 			  m.put(masp, soluong+temp);
 		  }
 		 }
-		for(int i=0;i<this.n;i++) {
+		String header=String.format("%-40s%-40s%s","Ma san pham","Ten san pham","So luong");
+		System.out.println(header);
+		for (int i = 0; i <this.n; i++) {
+			int slsp;
 			if(m.get(dssp[i].getMa())!=null) {
-				System.out.println("So luong ban duoc cua san pham "+dssp[i].getTen()+":"+m.get(dssp[i].getMa()));
+				slsp=m.get(dssp[i].getMa());
 			}else {
-				System.out.println("So luong ban duoc cua san pham "+dssp[i].getTen()+":"+"0");
+				slsp=0;
 			}
+			String row=String.format("%-40s%-40s%d",dssp[i].getMa(),dssp[i].getTen(),slsp);
+			System.out.println(row);
 		}
+		System.out.println("Tong san pham ban duoc:"+tong);
 	}
 	public void thongKeDTSP(ChiTietHoaDon a[],int n) {
 	    Map<String, Double> m=new HashMap<>();
+	    Double tongtien=0.0;
 		for(int i=0;i<n;i++) {
 		  
 		  String masp=a[i].getMasp();
 		  double tien=a[i].getSoluong()*a[i].getDongia();
+		  tongtien+=tien;
 		  double temp;
 		  if(m.get(masp)==null) {
 			
@@ -269,13 +294,19 @@ public  class DanhSachSanPham implements Serializable {
 			  m.put(masp, tien+temp);
 		  }
 		 }
+		String header=String.format("%-30s%-30s%s","Ma san pham","Ten san pham","So tien");
+		System.out.println(header);
 		for(int i=0;i<this.n;i++) {
+			Double slsp;
 			if(m.get(dssp[i].getMa())!=null) {
-				System.out.println("Danh thu  ban duoc cua "+dssp[i].getTen()+":"+m.get(dssp[i].getMa()));
+				slsp=m.get(dssp[i].getMa());
 			}else {
-				System.out.println("Danh thu  ban duoc cua "+dssp[i].getTen()+":"+"0.0");
+				slsp=0.0;
 			}
+			String row=String.format("%-30s%.2f",dssp[i].getMa(),dssp[i].getTen(),slsp);
+			System.out.println(row);
 		}
+		System.out.println("Tong so tien:"+tongtien);
 	}
 	public void ghi(DanhSachSanPham dspn) {
 		 String filePath = "sanpham.dat";

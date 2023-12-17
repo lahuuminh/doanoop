@@ -88,7 +88,7 @@ public class PhieuNhap implements Serializable {
 
 		public void nhap() {
 			Scanner sc=new Scanner(System.in);
-			System.out.println("nhap ma  phieu");
+			System.out.println("nhap ma phieu nhap ");
 			this.maphieu=sc.nextLine();
 //			System.out.println("nhap ngay lap");
 			this.ngay=ValidInput.getValidDate(sc,"nhap ngay lap");
@@ -99,8 +99,8 @@ public class PhieuNhap implements Serializable {
 			
 		}
 		public void xuat() {
-		System.out.println(this);
-			
+			 String row = String.format("%-30s%-30s%-30s%-30s%.2f",this.getMaphieu(),this.getNgay(),this.getManv(),this.getMancc(),this.getTongtien());
+			System.out.println(row);
 		}
 
 	}

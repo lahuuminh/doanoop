@@ -44,57 +44,67 @@ public void menu() {
 				a.suaTheoMa();
 				break;
 			case 5:
-                int luachontimkiem;
-				System.out.println("----------MENU TIM KIEM------------");
-				System.out.println("1.TIM KIEM MA PHIEU NHAP");
-				System.out.println("2.TIM KIEM THEO NGAY");
-				System.out.println("3.TIM KIEM THEO MA NHA CUNG CAP");
-				System.out.println("4.THOAT");
-				System.out.println("NHAP LUA CHON");
-				luachontimkiem = Integer.parseInt(sc.nextLine());
-				switch (luachontimkiem) {
-				case 1:
-					System.out.println("NHAP MA PHIEU NHAP");
-					String ma=sc.nextLine();
-					DanhSachPhieuNhap pnma =a.timMaPhieu(ma);
-					System.out.println("PHIEU NHAP THEO MA");
-				    pnma.xuat();
-					break;
-				case 2:
+			  Boolean flag=true;
+			  while(flag) {
+				  
+				  int luachontimkiem;
+				  System.out.println("----------MENU TIM KIEM------------");
+				  System.out.println("1.TIM KIEM THEO MA PHIEU NHAP");
+				  System.out.println("2.TIM KIEM THEO NGAY");
+				  System.out.println("3.TIM KIEM THEO MA NHA CUNG CAP");
+				  System.out.println("4.THOAT");
+				  System.out.println("NHAP LUA CHON");
+				  luachontimkiem = Integer.parseInt(sc.nextLine());
+				  switch (luachontimkiem) {
+				  case 1:
+					  System.out.println("NHAP MA PHIEU NHAP");
+					  String ma=sc.nextLine();
+					  DanhSachPhieuNhap pnma =a.timMaPhieu(ma);
+					  System.out.println("PHIEU NHAP THEO MA");
+					  pnma.xuat();
+					  break;
+				  case 2:
 //					System.out.println("NHAP NGAY LAP");
-					String ngay=ValidInput.getValidDate(sc,"NHAP NGAY LAP");
-					DanhSachPhieuNhap pnnl=a.timNgay(ngay);
-					System.out.println("PHIEU NHAP THEO NGAY LAP");
-				    pnnl.xuat();
-					break;
-				case 3:
-					System.out.println("NHAP MA NHA CUNG CAP");
-					String mancc=sc.nextLine();
-					DanhSachPhieuNhap plncc=a.timMaNhaCungCap(mancc);
-					System.out.println("PHIEU LAP THEO MA NHA CUNG CAP");
-				    plncc.xuat();
-					break;
-				case 4:
-					break;
-			    default:
-				 break;
-				}
+					  String ngay=ValidInput.getValidDate(sc,"NHAP NGAY LAP");
+					  DanhSachPhieuNhap pnnl=a.timNgay(ngay);
+					  System.out.println("PHIEU NHAP THEO NGAY LAP");
+					  pnnl.xuat();
+					  break;
+				  case 3:
+					  System.out.println("NHAP MA NHA CUNG CAP");
+					  String mancc=sc.nextLine();
+					  DanhSachPhieuNhap plncc=a.timMaNhaCungCap(mancc);
+					  System.out.println("PHIEU LAP THEO MA NHA CUNG CAP");
+					  plncc.xuat();
+					  break;
+				  case 4:
+					  flag=false;
+					  break;
+				  default:
+					  break;
+					  
+				  }
+			  }
 				break;
 			case 6:
-				System.out.println("----------MENU THONG KE------------");
-				System.out.println("1.THONG KE TONG TIEN NHAP HANG");
-				System.out.println("2.THOAT");
-				int luachonthongke=ValidInput.getValidInteger(sc, "NHAP LUA CHON CUA BAN");
-				switch (luachonthongke) {
-				case 1: 
-					
-					a.thongKeTienNhapHang();
-					break;
-				case 2:
-					break;
-				default:
-					break;
-			
+				Boolean flagtk=true;
+				while(flagtk) {
+					System.out.println("----------MENU THONG KE------------");
+					System.out.println("1.THONG KE TONG TIEN NHAP HANG");
+					System.out.println("2.THOAT");
+					int luachonthongke=ValidInput.getValidInteger(sc, "NHAP LUA CHON CUA BAN");
+					switch (luachonthongke) {
+					case 1: 
+						
+						a.thongKeTienNhapHang();
+						break;
+					case 2:
+						flagtk=false;
+						break;
+					default:
+						break;
+						
+					}
 				}
 				break;
 			case 7:

@@ -88,7 +88,8 @@ public void nhap() {
 	
 }
 public void xuat() {
-	System.out.println(this);
+	String row = String.format("%-30s%-30s%-30d%-30.2f%.2f",this.getMapn(),this.getMasanpham(),this.getSoluong(),this.getDongia(),this.getThanhtien());
+	System.out.println(row);
 }
 	
 }

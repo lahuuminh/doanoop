@@ -71,10 +71,11 @@ public class DanhSachPhieuNhap implements Serializable{
 
 		}
 	public void xuat(){
-
+		String header1 = String.format("%-30s%-30s%-30s%-30s%s","Ma phieu","Ngay","Ma nhan vien","Ma nha cung cap","Tong tien");
+        System.out.println(header1);
 		for (int i=0;i<n;i++){
 
-	System.out.println(dspn[i]);
+	        dspn[i].xuat();
 
 		}
 
@@ -104,11 +105,20 @@ public class DanhSachPhieuNhap implements Serializable{
 				sp.setSoluong(sp.getSoluong()+ctpn.getSoluong());
 			}
 		}
-		pn.setTongtien(tongtien);
-		dspn[n]=pn;
-		n++;
-		
+		if(tongtien==0) {
+			System.out.println("tao phieu nhap khong thanh cong");
+		}else {
+			
+			pn.setTongtien(tongtien);
+			dspn[n]=pn;
+			System.out.println("tao hoa don thanh cong,hoa don cua ban la");
+			System.out.println(dspn[n]);
+			n++;
 		}
+		}
+		
+		
+		
 	public void them(PhieuNhap x){
 		dspn[n]=new PhieuNhap(x);
 		n++;

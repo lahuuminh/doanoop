@@ -54,6 +54,7 @@ public class NhaCungCap  implements Serializable {
 		this.diachi=sc.nextLine();
 	}
 	public void xuat() {
-		System.out.println(this);
+		String row = String.format("%-30s%-30s%s",this.getMa(),this.getTen(),this.getDiachi());
+        System.out.println(row);
 	}
 }
