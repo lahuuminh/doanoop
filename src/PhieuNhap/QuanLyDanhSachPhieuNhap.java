@@ -24,8 +24,8 @@ public void menu() {
 			System.out.println("3.XOA PHIEU NHAP");
 			System.out.println("4.SUA THONG TIN PHIEU NHAP");
 			System.out.println("5.TIM KIEM PHIEU NHAP");
-			System.out.println("6.THONG KE PHIEU NHAP");
-			System.out.println("7.THOAT");
+		
+			System.out.println("6.THOAT");
 //			System.out.println("NHAP LUA CHON");
 			Scanner sc=new Scanner(System.in);
 			luachon =ValidInput.getValidInteger(sc,"NHAP LUA CHON");
@@ -53,8 +53,7 @@ public void menu() {
 				  System.out.println("2.TIM KIEM THEO NGAY");
 				  System.out.println("3.TIM KIEM THEO MA NHA CUNG CAP");
 				  System.out.println("4.THOAT");
-				  System.out.println("NHAP LUA CHON");
-				  luachontimkiem = Integer.parseInt(sc.nextLine());
+				  luachontimkiem = ValidInput.getValidInteger(sc, "NHAP LUA CHON");
 				  switch (luachontimkiem) {
 				  case 1:
 					  System.out.println("NHAP MA PHIEU NHAP");
@@ -87,27 +86,6 @@ public void menu() {
 			  }
 				break;
 			case 6:
-				Boolean flagtk=true;
-				while(flagtk) {
-					System.out.println("----------MENU THONG KE------------");
-					System.out.println("1.THONG KE TONG TIEN NHAP HANG");
-					System.out.println("2.THOAT");
-					int luachonthongke=ValidInput.getValidInteger(sc, "NHAP LUA CHON CUA BAN");
-					switch (luachonthongke) {
-					case 1: 
-						
-						a.thongKeTienNhapHang();
-						break;
-					case 2:
-						flagtk=false;
-						break;
-					default:
-						break;
-						
-					}
-				}
-				break;
-			case 7:
 				dk=false;
 				break;
 			default:

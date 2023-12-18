@@ -183,15 +183,7 @@ public void timSDT(String sdt) {
 		}
 	
 	}
-public void TKTen(String ten) {
-	int count=0;
-	for (int i = 0; i <n; i++) {
-		if(dskh[i].getTen().compareTo(ten)==0) {
-			count++;
-		}
-	}
-	System.out.println("SO NGUUOI CO TEN "+ten +"la:"+count);
-}
+
 public void ghi() {
 	 String filePath = "khachhang.dat";
 

@@ -17,6 +17,7 @@ import hoadon.ChiTietHoaDon;
 import hoadon.DanhSachChiTietHoaDon;
 import hoadon.DanhSachHoaDon;
 import hoadon.HoaDon;
+import until.ValidInput;
 
 
 
@@ -120,19 +121,28 @@ public  class DanhSachSanPham implements Serializable {
 		}
 		}
 	public void them(){
-		System.out.println("1.Nhap thuc an");
-		System.out.println("2.Nhap nuoc uong");
-		Scanner sc=new Scanner(System.in);
-		int luachon=sc.nextInt();
-		if(luachon==1) {
+	Scanner sc=new Scanner(System.in);
+		boolean flag=true;
+		int luachon;
+		while(flag) {
+			System.out.println("1.Nhap thuc an");
+			System.out.println("2.Nhap nuoc uong");
+			 luachon=ValidInput.getValidInteger(sc,"nhap lua chon cua ban");
+			if(luachon==1) {
+				
+				dssp[n]=new ThucAn();
+				dssp[n].nhap();
+				n++;
+				flag=false;
+			}else if(luachon==2) {
+				dssp[n]=new NuocUong();
+				dssp[n].nhap();
+				n++;
+				flag=false;
+			}else {
+				System.out.println("nhap lai lua chon");
+			}
 			
-			dssp[n]=new ThucAn();
-			dssp[n].nhap();
-			n++;
-		}else {
-			dssp[n]=new NuocUong();
-			dssp[n].nhap();
-			n++;
 		}
 		}
 	public void them(ThucAn a){
@@ -276,38 +286,7 @@ if(dssp[vitri] instanceof ThucAn) {
 		}
 		System.out.println("Tong san pham ban duoc:"+tong);
 	}
-	public void thongKeDTSP(ChiTietHoaDon a[],int n) {
-	    Map<String, Double> m=new HashMap<>();
-	    Double tongtien=0.0;
-		for(int i=0;i<n;i++) {
-		  
-		  String masp=a[i].getMasp();
-		  double tien=a[i].getSoluong()*a[i].getDongia();
-		  tongtien+=tien;
-		  double temp;
-		  if(m.get(masp)==null) {
-			
-			  m.put(masp,tien);
-		  }else {
-			 temp =m.get(masp);
-
-			  m.put(masp, tien+temp);
-		  }
-		 }
-		String header=String.format("%-30s%-30s%s","Ma san pham","Ten san pham","So tien");
-		System.out.println(header);
-		for(int i=0;i<this.n;i++) {
-			Double slsp;
-			if(m.get(dssp[i].getMa())!=null) {
-				slsp=m.get(dssp[i].getMa());
-			}else {
-				slsp=0.0;
-			}
-			String row=String.format("%-30s%.2f",dssp[i].getMa(),dssp[i].getTen(),slsp);
-			System.out.println(row);
-		}
-		System.out.println("Tong so tien:"+tongtien);
-	}
+	
 	public void ghi(DanhSachSanPham dspn) {
 		 String filePath = "sanpham.dat";
 

@@ -221,13 +221,6 @@ public class DanhSachHoaDon implements Serializable{
 		return hd;
 	}
 
-	public void TKDoanThu() {
-		double tongdoanhthu=0;
-		for (int i = 0; i <n; i++) {
-			 tongdoanhthu+=dshd[i].getTongtien();
-		}
-		System.out.println("TONG DOANH THU LA:"+tongdoanhthu);
-	}
 	public void TKQuy() {
 		double q1,q2,q3,q4;
 		q1=q2=q3=q4=0;

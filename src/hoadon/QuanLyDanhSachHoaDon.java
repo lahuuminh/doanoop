@@ -107,18 +107,14 @@ public void menu() {
 					while(flagthongke) {
 						 int luachonthonge;
 							System.out.println("----------MENU THONG KE HOA DON------------");
-							System.out.println("1.THONG KE THEO TONG DANH THU");
-							System.out.println("2.THONG KE DANH THU THEO QUY");
-							System.out.println("3.THOAT");
+							System.out.println("1.THONG KE DANH THU THEO QUY");
+							System.out.println("2.THOAT");
 							luachonthonge = ValidInput.getValidInteger(sc,"nhap lua chon thong ke cua ban");
 							switch (luachonthonge) {
 							case 1: 
-								dshd.TKDoanThu();
-								break;
-							case 2: 
 								dshd.TKQuy();
 								break;
-							case 3:
+							case 2:
 								flagthongke=false;
 								break;
 							default:

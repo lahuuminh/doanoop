@@ -19,8 +19,7 @@ public class QuanLyDanhSachNhanVien{
 				System.out.println("3.XOA NHAN VIEN");
 				System.out.println("4.SUA THONG TIN NHAN VIEN");
 				System.out.println("5.TIM KIEM NHAN VIEN");
-				System.out.println("6.THONG KE NHAN VIEN");
-				System.out.println("7.THOAT");
+				System.out.println("6.THOAT");
 //				System.out.println("NHAP LUA CHON");
 				Scanner sc=new Scanner(System.in);
 				luachon = ValidInput.getValidInteger(sc,"NHAP LUA CHON" );
@@ -90,30 +89,6 @@ public class QuanLyDanhSachNhanVien{
 					}
 					break;
 				case 6:
-					Boolean flagtk=true;
-					while(flagtk) {
-						int luachonthongke;
-						System.out.println("----------MENU THONG KE------------");
-						System.out.println("1.THONG KE THEO LUONG NHAN VIEN TRUNG BINH");
-						System.out.println("2.THONG KE LUONG MOI THANG PHAI TRA CHO NHAN VIEN");
-						System.out.println("3.THOAT");
-						luachonthongke =ValidInput.getValidInteger(sc,"NHAP LUA CHON CUA BAN");
-						switch (luachonthongke) {
-						case 1: 
-							a.TKluong();
-							break;
-						case 2: 
-							a.tKLuongPT();
-							break;
-						case 3:
-							flagtk=false;
-							break;
-						default:
-							break;
-						}
-					}
-				break;
-				case 7:
 					dk=false;
 					break;
 				default:

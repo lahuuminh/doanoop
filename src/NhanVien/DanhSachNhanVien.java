@@ -179,21 +179,7 @@ public class DanhSachNhanVien implements Serializable {
 
 
 	}
-	public void TKluong() {
-		float tbluong=0;
-		for (int i = 0; i < n; i++) {
-		  tbluong+=dsnv[i].getLuong();
-		}
-		tbluong/=(n);
-		System.out.println("LUONG TRUNG BINH CUA NHAN VIEN:"+tbluong);
-	}
-	public void tKLuongPT() {
-		float tbluong=0;
-		for (int i = 0; i < n; i++) {
-		  tbluong+=dsnv[i].getLuong();
-		}	
-		System.out.println("LUONG PHAI TRA CHO NHAN VIEN MOI THANG LA:"+tbluong);
-	}
+
 	public void ghi(DanhSachNhanVien dsnv) {
 		 String filePath = "nhanvien.dat";
 

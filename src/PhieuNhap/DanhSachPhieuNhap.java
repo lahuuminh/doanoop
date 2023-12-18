@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 import NhanVien.DanhSachNhanVien;
 import NhanVien.NhanVien;
+import hoadon.DanhSachChiTietHoaDon;
 import hoadon.DanhSachHoaDon;
 import sanpham.DanhSachSanPham;
 import sanpham.NuocUong;
@@ -111,8 +112,12 @@ public class DanhSachPhieuNhap implements Serializable{
 			
 			pn.setTongtien(tongtien);
 			dspn[n]=pn;
-			System.out.println("tao hoa don thanh cong,hoa don cua ban la");
-			System.out.println(dspn[n]);
+			System.out.println("tao phieu nhap thanh cong,phieu nhap cua ban la");
+			String header1 = String.format("%-30s%-30s%-30s%-30s%s","Ma phieu","Ngay","Ma nhan vien","Ma nha cung cap","Tong tien");
+	        System.out.println(header1);
+			dspn[n].xuat();
+			DanhSachChiTietPhieuNhap temp=dsctpn.timMaPN(pn.getMaphieu());
+			temp.xuat();
 			n++;
 		}
 		}
@@ -210,15 +215,7 @@ public class DanhSachPhieuNhap implements Serializable{
 		
 
 	}
-	public void thongKeTienNhapHang() {
-		float tongtien=0;
-		for (int i = 0; i < n; i++) {
-			
-				tongtien+=dspn[i].getTongtien();
-			
-		}
-		System.out.println("TONG TIEN NHAP HANG "+"LA:"+tongtien);
-	}
+
 	public void ghi(DanhSachPhieuNhap dspn) {
 		 String filePath = "phieunhap.dat";
 
